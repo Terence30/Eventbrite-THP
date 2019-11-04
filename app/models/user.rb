@@ -5,8 +5,7 @@ class User < ApplicationRecord
   has_many :admin_event, foreign_key: 'admin_id', class_name: "Event"
 
   def welcome_send
-    UserMailer.welcome_email(self).deliver_later(wait: 1.second)
-    sleep 1
+    UserMailer.welcome_email(self).deliver_now
   end
 
 end
