@@ -4,7 +4,6 @@ class Attendance < ApplicationRecord
 	belongs_to :event
 
   def new_participant_send
-  	    puts self
     AdminMailer.new_participant(self).deliver_now
 
   end

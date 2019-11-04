@@ -9,7 +9,7 @@ User.all.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users') #commande pour reset l'id 
 
 10.times do
-	u = User.create(description: Faker::TvShows::GameOfThrones.quote, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
+	u = User.new(description: Faker::TvShows::GameOfThrones.quote, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
     u.email = u.last_name + "@yopmail.com"
     u.save
 end
