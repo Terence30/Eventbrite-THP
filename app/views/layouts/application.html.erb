@@ -33,11 +33,10 @@
     <%end%>
 
     <% if current_user %>
-    Connecté en tant que <%= current_user.email %>
     <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Mon profil</button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-left: -45%;">
+      <%= current_user.email %></button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
         <center>
         <a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user.id) %></a>
         <%= form_tag destroy_user_session_path, method: :delete do %>
