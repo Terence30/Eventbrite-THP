@@ -3,15 +3,15 @@ class Event < ApplicationRecord
 	has_many :users, through: :attendances
 	belongs_to :admin, class_name: "User"
 
-    validates :start_date, presence: true
+  validates :start_date, presence: true
 	validate :event_past
-	validates :duration, presence: true
+	validates_numericality_of :duration, presence: true, :only_integer => true, :greater_than_or_equal_to => 1
 	validate :multiple_of_5
 	validates :title, presence: true, length: { in: 5..140 }
 	validates :description, presence: true, length: { in: 5..140 }
 	validates_numericality_of :price, presence: true, :only_integer => true, :greater_than_or_equal_to => 1
-    validates_numericality_of :price, :only_integer => true, :less_than_or_equal_to => 1000
-    validates :location, presence: true
+  validates_numericality_of :price, :only_integer => true, :less_than_or_equal_to => 1000
+  validates :location, presence: true
 
 	private
 
