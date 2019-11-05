@@ -1,0 +1,35 @@
+<!-- Ceci est la page du detail d'un event -->
+
+<center><h1>Detail de l'evenement</h1>
+<h3>Voici le contenu de l'evenement</h3>
+
+
+<div class="card" style="width: 65rem;">
+  <div class="card-body">
+  	<h4><B>Détail : </B></h4>
+
+  	<p class="card-text"><B>Titre: </B><%= @event.title %></a>
+  	<p class="card-text"><B>Début: </B><%= @event.start_date %></a>
+  	<p class="card-text"><B>Durée: </B><%= @event.duration %> min</a>
+    <p class="card-text"><B>Prix: </B><%= @event.price %>€</a>
+    <p class="card-text"><B>Ville: </B><%= @event.location %></a>
+    <p class="card-text"><B>Créé par: </B><%= @event.admin.first_name %> <%= @event.admin.last_name %></a>
+
+<br><br>
+  <% if current_user %>  
+  <% if current_user.id == @user_id %>
+    <div class="btn btn-secondary"><%= link_to "Edit", edit_gossip_path %>  </div>
+
+    <%= form_tag url_for(action:'destroy'), method: "delete" do %>
+  <input class="btn btn-danger" type="submit" value="Delete"/>
+<%end %>
+<%end %>
+<%end %>
+
+
+
+    <a href="/" class="btn btn-secondary">Return Home</a>
+    </div> 
+  </div>
+</div>
+</center>

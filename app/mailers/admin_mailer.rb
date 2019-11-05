@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-  default from: 'no-reply@monsite.fr'
+  default from: 'no-reply@eventbrite-thpp.fr'
  
   def new_participant(admin)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user

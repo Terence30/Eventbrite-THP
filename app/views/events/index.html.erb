@@ -1,0 +1,25 @@
+<center><h4>Voici la liste des evenements disponible : </h4>
+<br>
+
+<a href="<%=new_event_path%>"class="btn btn-lg btn-primary btn-block">Poster un nouvel event</a></h3>
+
+<br>
+
+<br>
+<br>
+
+
+<% @array_event.each do |event| %>
+
+  <div class="col-sm-8">
+    <div class="card">
+      <div class="card-body">
+        <a>Title : </B><%= link_to "#{event.title}", event_path(event) %></a>
+        <h5 class="card-title"><%= event.location %></h5>
+      </div>
+    </div>
+  </div>
+
+<br>
+<%end%>
+</center>
