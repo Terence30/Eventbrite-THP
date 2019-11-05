@@ -16,15 +16,21 @@ class Event < ApplicationRecord
 	private
 
 	def event_past
+      if start_date != nil
       if start_date < DateTime.now
       	errors.add(:start_date, "La date de départ de l'event ne peut pas etre dans le passé")
       end
     end
+    end
 
     def multiple_of_5
+      if duration != nil
       if duration % 5 != 0
       	errors.add(:duration, "La durée doit etre un multiple de 5")
       end
     end
+    end
+
+    
 
 end

@@ -8,12 +8,16 @@
   <div class="card-body">
   	<h4><B>Détail : </B></h4>
 
+
+  
+
   	<p class="card-text"><B>Titre: </B><%= @event.title %></a>
   	<p class="card-text"><B>Début: </B><%= @event.start_date %></a>
   	<p class="card-text"><B>Durée: </B><%= @event.duration %> min</a>
+    <p class="card-text"><B>Se termine: </B><%= @event.start_date + @event.duration * 60%></a>
     <p class="card-text"><B>Prix: </B><%= @event.price %>€</a>
     <p class="card-text"><B>Ville: </B><%= @event.location %></a>
-    <p class="card-text"><B>Créé par: </B><%= @event.admin.first_name %> <%= @event.admin.last_name %></a>
+    <p class="card-text"><B>Créé par: </B><%= @event.admin.email %></a>
 
 <br><br>
   <% if current_user %>  
