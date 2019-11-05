@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @array_event = Event.all
+    array_event = Event.all
+    @array_event = array_event.reverse
   end
 
   def show

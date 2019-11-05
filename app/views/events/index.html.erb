@@ -1,25 +1,30 @@
-<center><h4>Voici la liste des evenements disponible : </h4>
+<center>
+<div class="jumbotron">
+  <h1 class="display-4">Bonjour, et bienvenue sur Eventbrite THPP!</h1>
+  <p class="lead">Ce site est a titre d'experimentations et d'ameliorations de mes compétences en Ruby on Rails</p>
+  <hr class="my-4">
+  <p>Le principe est simple, vous créez des evenements et nous les affichons sur notre site</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="<%=new_event_path%>" role="button">Poster un nouvel event</a>
+  </p>
+</div>
+
+	<h4>Voici la liste des evenements disponible : </h4>
 <br>
 
-<a href="<%=new_event_path%>"class="btn btn-lg btn-primary btn-block">Poster un nouvel event</a></h3>
-
-<br>
-
-<br>
-<br>
-
-
-<% @array_event.each do |event| %>
-
-  <div class="col-sm-8">
+<% @array_event.each_slice(3) do |events| %>
+<div class="row">
+<% events.each do |event| %>
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <a>Title : </B><%= link_to "#{event.title}", event_path(event) %></a>
-        <h5 class="card-title"><%= event.location %></h5>
+        <h5>Title : </B><%= link_to "#{event.title}", event_path(event) %></h5>
+        <p class="card-title"><%= event.location %></p>
       </div>
     </div>
   </div>
-
+  <%end%>
+</div>
 <br>
 <%end%>
 </center>
