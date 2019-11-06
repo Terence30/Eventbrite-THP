@@ -18,22 +18,12 @@
     <p class="card-text"><B>Prix: </B><%= @event.price %>€</a>
     <p class="card-text"><B>Ville: </B><%= @event.location %></a>
     <p class="card-text"><B>Description: </B><%= @event.description %></a>
+    <p class="card-text"><B>Participants: </B><%= @event.users.count %></a>
     <p class="card-text"><B>Créé par: </B><%= @event.admin.email %></a>
 
 <br><br>
-  <% if current_user %>  
-  <% if current_user.id == @user_id %>
-    <div class="btn btn-secondary"><%= link_to "Edit", edit_gossip_path %>  </div>
 
-    <%= form_tag url_for(action:'destroy'), method: "delete" do %>
-  <input class="btn btn-danger" type="submit" value="Delete"/>
-<%end %>
-<%end %>
-<%end %>
-
-
-
-    <a href="/" class="btn btn-secondary">Return Home</a>
+    <a class="btn btn-secondary"<%= link_to "Back", :back %></a>
     </div> 
   </div>
 </div>
