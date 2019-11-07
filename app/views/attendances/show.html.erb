@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Show Event</title>
+  <body> 
+  <div class="container">
+      <div class="jumbotron text-center bg-light">
+      <h5> Félicitation ! Votre reservation est bien confirmé</h5> 
+      <% attendance = Attendance.find(params[:id]) %>
+      <h5> Reservation N°: <%= attendance.id %> </h5> 
+      <h5> Participant: <%= current_user.email %> </h5> 
+      </div>
+
+
+</body>
+</html>

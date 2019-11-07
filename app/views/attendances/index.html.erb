@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title> Attendances to your event </title>
+  </head>
+
+    <body> 
+    <center>
+
+        <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+            <h1 class="display-3">Bienvenue sur Eventbrite THPP! </h1> <br>
+                <h3>Voici la liste des participants à votre evenement : </h3>
+            </div>
+        </div>  <!-- /jumbotron -->
+
+   
+
+            <div class="container">  <!-- container -->
+        
+                <% @attendances_event.each do |attendance| %>
+                    
+                    <% attendant = User.find(attendance.user_id) %>
+            
+                        <div class="card" style = "margin-bottom:25px" >
+                            <div class="card-header" >
+                                Participant N° : <%= attendance.id %><br>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= attendant.email %></h5>
+
+                            </div>
+                        </div>
+                 <% end %>
+
+            </div> <!-- /container -->
+<a class="btn btn-secondary"<%= link_to "Editer l'event", edit_event_path(@event.id) %></a>
+<br><br>
+    </main>
+    </center>
+    </body>
+
+</html>

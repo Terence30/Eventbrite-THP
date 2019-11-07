@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_action :authenticate_user!, only: [:new, :create]
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     array_event = Event.all
@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params["id"])
+    @participants = @event.attendances
   end
 	
   def new
@@ -26,5 +27,29 @@ class EventsController < ApplicationController
     # sinon, il render la view new (qui est celle sur laquelle on est déjà)
         end
   end
+
+def edit
+  @event = Event.find(params[:id])
+  
+end
+  
+def update
+
+      @event = Event.find(params[:id])
+      puts params
+      event_params = params.permit(:title, :start_date, :duration, :description, :price, :location)
+        if @event.update(event_params)
+          redirect_to event_path
+        else
+          render :edit
+        end 
+  
+end
+
+def destroy
+      @event = Event.find(params[:id])
+      @event.destroy
+      redirect_to events_path
+end
 
 end

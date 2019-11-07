@@ -1,4 +1,16 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.jumbotron {
+  height: 450px;
+  /* Tu lui donnes une image de background */
+  background-image: url("https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2016/12/16131147/future-phone-mobile-live-events-technology-trends.png");
 
+  /* Centre l'image et la met bien sur tous les écrans */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px green;
+
+}

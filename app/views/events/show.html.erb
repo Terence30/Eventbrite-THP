@@ -22,7 +22,20 @@
     <p class="card-text"><B>Créé par: </B><%= @event.admin.email %></a>
 
 <br><br>
+    <!-- Bouton add event accesible pour les gens qui n'ont pas deja rejoint l'event et si non admin -->
+    <% if current_user != nil %>
+    <% if (current_user.id != @event.admin.id) && (@event.users.ids.exclude? (current_user.id))%>
 
+
+    <a class="btn btn-secondary"<%= link_to "Rejoindre l'evenement", {:controller => "charges", :action => "new", :event_id => @event.id} %></a>
+    <%end%>
+    <%end%>
+
+    <!-- Bouton index participants de cette evenement accessible uniquement si admin de l'event -->
+    <%if current_user == @event.admin%>
+        <a class="btn btn-secondary"<%= link_to "Mon espace événement", {:controller => "attendances", :action => "index", :event_id => @event.id} %></a>
+    <%end%>
+  
     <a class="btn btn-secondary"<%= link_to "Back", :back %></a>
     </div> 
   </div>
