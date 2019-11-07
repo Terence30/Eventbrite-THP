@@ -1,6 +1,9 @@
 <!-- Ceci est la page du detail d'un event -->
 
-<center><h1>Detail de l'evenement</h1>
+
+<center>
+  <div><%= flash[:success] %></div>
+  <h1>Detail de l'evenement</h1>
 <h3>Voici le contenu de l'evenement</h3>
 
 
@@ -36,7 +39,7 @@
         <a class="btn btn-secondary"<%= link_to "Mon espace événement", {:controller => "attendances", :action => "index", :event_id => @event.id} %></a>
     <%end%>
   
-    <a class="btn btn-secondary"<%= link_to "Back", :back %></a>
+    <a class="btn btn-secondary"<%= link_to "Return Home", events_path %></a>
     </div> 
   </div>
 </div>
