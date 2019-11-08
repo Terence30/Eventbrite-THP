@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :events, through: :attendances
   has_many :admin_event, foreign_key: 'admin_id', class_name: "Event"
+  has_one_attached :photo_event
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

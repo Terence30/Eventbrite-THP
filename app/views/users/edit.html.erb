@@ -1,0 +1,12 @@
+  <%= form_with model: @user, local: true,  html: { class: "form-signin mt-3" } do |f| %>
+    <p> Nom de famille :</br> <%= f.text_field :first_name, class: "col-md-6 form-control"%> </p>
+    <p> Prenom :</br> <%= f.text_field:last_name, class: "col-md-6 form-control"%> </p>
+    <p> Description :</br> <%= f.text_field :description, class: "col-md-6 form-control"%> </p>
+    <p> Photo de profil:</br>  <%= f.file_field :photo_event %></p>
+
+
+    <div class="actions mt-5">
+      <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
+    </div>
+
+     <%end%>

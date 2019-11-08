@@ -17,8 +17,9 @@ class EventsController < ApplicationController
   end
 
   def create
-  	event_params = params.permit!
-  	@event= Event.new(title: params["title"], start_date: params["start_date"], duration: params["duration"], description: params["description"], price: params["price"], location: params["location"], admin: current_user)
+  	@event= Event.new(params_event)
+    @event.admin = current_user
+    
   	    if @event.save # essaie de sauvegarder en base @gossip
   	    	@array_event = Event.all
           flash[:success] = "Votre evenement a bien été créé"
@@ -39,7 +40,7 @@ def update
 
       @event = Event.find(params[:id])
       puts params
-      event_params = params.permit(:title, :start_date, :duration, :description, :price, :location)
+      event_params = params.permit(:title, :start_date, :duration, :description, :price, :location, :photo_event)
         if @event.update(event_params)
           flash[:success] = "Votre evenement a bien été mise a jour"
           redirect_to event_path
@@ -57,6 +58,11 @@ def destroy
 end
 
 private
+
+  def params_event
+    
+    params.require(:event).permit(:start_date, :duration, :title, :price, :description, :location, :photo_event)
+  end
 
 def edit_only_admin
   @event = Event.find(params[:id])

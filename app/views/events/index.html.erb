@@ -18,11 +18,15 @@
 <% @array_event.each_slice(3) do |events| %>
 <div class="row">
 <% events.each do |event| %>
+        <% if event.photo_event.attached?%>
+        <% else event.destroy%>
+        <%end%>
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
         <h5>Title : </B><%= link_to "#{event.title}", event_path(event) %></h5>
         <p class="card-title"><%= event.location %></p>
+
       </div>
     </div>
   </div>

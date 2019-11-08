@@ -5,15 +5,17 @@
   <div><%= flash[:success] %></div>
   <h1>Detail de l'evenement</h1>
 <h3>Voici le contenu de l'evenement</h3>
+<h3>Avatar actuel</h3>
+<%if @event.photo_event.attached?%>
+  <%= image_tag @event.photo_event, alt: 'photo event' %>
+<%else%>
+  <p>=== Il n'y a pas encore de photo de l'evenement ===</p>
+<%end%>
 
 
 <div class="card" style="width: 65rem;">
   <div class="card-body">
   	<h4><B>Détail : </B></h4>
-
-
-  
-
   	<p class="card-text"><B>Titre: </B><%= @event.title %></a>
   	<p class="card-text"><B>Début: </B><%= @event.start_date %></a>
   	<p class="card-text"><B>Durée: </B><%= @event.duration %> min</a>
